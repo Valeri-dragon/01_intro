@@ -39,9 +39,9 @@ l(changeArr)
 //заполнение пустого массива на основе других данных (длина массива неизветсна)
 let lines = [];
 let next;
-while(next = File.nextLine()){
-    lines.push(next);
-}
+// while(next = File.nextLine()){
+//     lines.push(next);
+// }
 
 //обработка значений массива
 for (let line of lines) {
@@ -58,3 +58,24 @@ for (let i = a.length - 1; i >=0; --i){
     aReversed.push(a[i]);
 }
 l(aReversed)
+
+//Сложная логика выхода из цикла
+let currentAttempt = 0;
+/*while (currentAttempt++ < 1000){
+    if (crayfishWhistles()) break; // делаем break когда выполняется сложно условие crayfishWhistles
+}*/
+
+//одновременная обработка нескольких массивов одинаковой длины
+
+for (let i in a) {
+    l(a[i] + aReversed[i]);
+}
+for (let i = 0; i < a.length; ++i){
+    l(a[i] + aReversed[i])
+}
+
+//Цикл со счётчиком и сложной логикой изменения значения счётчика
+l(`Цикл со счётчиком и сложной логикой изменения значения счётчика`)
+for (let x = 0; x < 100; x += Math.round(Math.random() * 5)){
+    l(x)
+}
