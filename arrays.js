@@ -163,3 +163,68 @@ const SearchOrdinalNumb = (array) => {
 
 }
 SearchOrdinalNumb(alphabet)
+//Генератор массивов
+const GenerateArray = (n, m, count)=>{
+    let arr = [];
+  
+    for (let i = 0; i <= count-1; i++){
+    let min = Math.min(n,m)
+    let max = Math.max(n,m)
+        let randomNum = Math.floor(Math.random() * (max - min) ) + min;
+arr.push(randomNum)
+}
+return l(arr),l(arr.length)
+}
+GenerateArray (-3, -10, 42);
+
+//сгенерировать массив и перемешать в нем элементы
+
+const GenerateAndMixingArr = (count) => {
+    let array= [];
+    for(let i = 1; i <= count; ++i ){
+        array.push(i)
+           }
+    let m = array.length, t, i;
+    //Пока есть элементы для перемешивания
+    while (m) {
+        //Взять оставшийся элемент
+        i = Math.floor(Math.random() * m--);
+
+        //И поменять его местами с текущим
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+        l(array)
+        return array;
+    }
+   
+}
+GenerateAndMixingArr(7);
+
+//Получить индекс заданного элемента из массива 
+const SearchOrdinalIndex = (array, elem) => {
+    let arr = array, i, numIndex;
+    
+    i = 0
+    numIndex = -1;
+    while (i < arr.length) {
+        i++
+        if (arr[i] == elem) {
+            numIndex = i;
+            break;
+        }
+    }
+    return l(numIndex === -1 ? `${elem} отсутствует в массиве` : `Заданный элемент ${elem} в массиве под порядковым номером ${numIndex}`)
+
+}
+
+SearchOrdinalIndex(GenerateAndMixingArr(5), 3)
+//обрабатывать массивы одним циклом программа, которая будет объединять два массива: arr2 и arr3. 
+let arr2 = [2, 2, 17, 21, 45, 12, 54, 31, 53]
+
+let arr3 = [12, 44, 23, 5]
+for (let i = 0; i <  arr3.length; i++){
+    l(arr2.push(arr3[i]))
+}
+l(arr2)
+l(arr2.concat(arr3))
