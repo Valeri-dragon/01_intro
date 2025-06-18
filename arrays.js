@@ -227,4 +227,4 @@ for (let i = 0; i <  arr3.length; i++){
     l(arr2.push(arr3[i]))
 }
 l(arr2)
-l(arr2.concat(arr3))
+//l(arr2.concat(arr3))
