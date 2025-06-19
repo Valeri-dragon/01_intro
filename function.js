@@ -33,9 +33,9 @@ const findCardIndex = (cards, wantedCard = 'Туз') => {
     //         return l(numIndex === -1 ? `${wantedCard} отсутствует в массиве` : `Заданный элемент ${wantedCard} в массиве под порядковым номером ${numIndex}`)
     //     }
     // }
-    for (let index in cards){
+    for (let index in cards) {
         let card = cards[index];
-        if(card === wantedCard){
+        if (card === wantedCard) {
             return l(`Заданный элемент ${wantedCard} в массиве колоды под порядковым номером ${index}`)
         }
     }
@@ -73,10 +73,70 @@ l(findCardInArr)
 */
 
 //Функции именование
-const generateRandomNumber = (n,m) => {
+const generateRandomNumber = (n, m) => {
     let range = Math.abs(m - n); //диапазон между числами m и n
     let numberinRange = Math.round(Math.random() * range);//округляем ранломное число умноженное на range
     //генерируем то число, которое находится в диапазоне,который сгенерировали в пременной range
     let min = Math.min(n, m);
-    return min + numberinRange; 
+    return min + numberinRange;
 }
+//tasks
+/*
+Создайте функцию с названием getAge(), которая будет рассчитывать возраст по году рождения.
+ У функции будет всего один аргумент (параметр), который нужно передать в функцию. 
+ Функция должна сделать расчёт возраста по текущему году.
+ После расчёта функция должна вернуть результат с помощью команды return.
+*/
+const getAge = (year) => {
+    let currentYear = new Date().getFullYear();
+    if (currentYear > year) {
+        let age = currentYear - year
+        return age;
+    }
+
+    return 'Год рождения не может быть больше текущего'
+}
+let year = getAge(1998);
+l(year);
+
+/*
+Напишите функцию filter(), которая создаёт массив email-адресов, не попавших в чёрный список. 
+В качестве аргументов функция должна принимать два массива: массив строк с исходными email-адресами 
+и массив строк с email-адресами в чёрном списке.
+*/
+const filter = (whiteList, blackList) => {
+    l(whiteList.filter(e => !~blackList.indexOf(e)))
+    return whiteList = whiteList.filter(e => !~blackList.indexOf(e));
+}
+/*
+Внутри этой функции проверяем, есть ли очередной элемент в массиве arr: вернёт ли indexOf() что-то отличное от -1. 
+Для короткой записи такой проверки удобно использовать побитовое НЕ ~ которое даст 0 в единственном случае, когда операнд равен -1.
+ Его отрицание ! даст true в том же единственном случае. Итого эта функция вернёт true только, если элемент не найден в массиве arr.
+*/
+// Массив с почтовыми адресами:
+let whiteList = ['my-email@gmail.ru', 'jsfunc@mail.ru', 'annavkmail@vk.ru', 'fullname@skill.ru', 'goodday@day.ru'];
+// Массив с почтовыми адресами в чёрном списке:
+let blackList = ['jsfunc@mail.ru', 'goodday@day.ru'];
+let whiteListEmail = filter(whiteList, blackList);
+l(whiteListEmail)
+/*
+Создайте функцию arrSort(), аргументом (параметром) которой будет массив. 
+Задача функции — сделать сортировку элементов переданного массива по возрастанию. 
+Функция должна вернуть отсортированный массив, а результат выполнения функции должен быть выведен в консоль с помощью console.log.
+*/
+const arrsort = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+
+            }
+
+        }
+    }
+    return arr;
+}
+let sortArr = arrsort([2, 5, 1, 3, 4]);
+l(sortArr);
