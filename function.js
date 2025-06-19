@@ -66,3 +66,17 @@ findCard(cards);
 findCard(cards, '5');
 let findCardInArr = findCardIndex(cards, 'Валет')
 l(findCardInArr)
+
+//undefined в JS значение по умолчанию, если явно ничего не прописано в коде
+/*null пишем тогда, когда явно выражаем кодом отсутствие значения 
+и не пишем ничего когда нам не важно вернется пустое 
+*/
+
+//Функции именование
+const generateRandomNumber = (n,m) => {
+    let range = Math.abs(m - n); //диапазон между числами m и n
+    let numberinRange = Math.round(Math.random() * range);//округляем ранломное число умноженное на range
+    //генерируем то число, которое находится в диапазоне,который сгенерировали в пременной range
+    let min = Math.min(n, m);
+    return min + numberinRange; 
+}
