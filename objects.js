@@ -48,3 +48,47 @@ l(user2.name); // Pete
 // присваивание значения свойству
 user2["likes birds"] = true;
 l(`${user2.name}  ${user2["likes birds"] === true ? 'любит птиц' : 'не любит птиц'}`)
+
+//функция опрделения имени свойств у объекта
+const printObjectProperty = (obj, propName) =>{
+    l(obj[propName]);
+}
+let userName = 'Валерия';
+let surName = 'Теребилова';
+let middleName = 'Сергеевна';
+
+
+let me = {
+userName,
+surName,
+middleName,
+birthDate: {year: 1988, month: 3, day: 26},
+occupation: 'Frontend разарботчик',
+getAge(){
+    //     let currentYear = new Date().getFullYear();
+    // if (currentYear > this.birthDate.year) {
+    //         let age = currentYear - this.birthDate.year;
+    //         return l(`Мне ${age} лет`);
+    //     }
+    let now = new Date();
+    let born = new Date(
+        this.birthDate.year,
+        this.birthDate.month + 1,
+        this.birthDate.day,
+    );
+    let diffInMilliSeconds = now.getTime() - born.getTime();
+    return l(`Мне ${Math.floor(diffInMilliSeconds / 1000 / 60 / 60 / 24 / 365.25)} лет`);
+    },
+married: true,
+//метод объекта
+sayHi(){
+    l(`${this.userName} шлёт тебе привет!`)
+},
+}
+printObjectProperty(me, 'userName') //Валерия
+printObjectProperty(me, 'middleName') //Сергеевна
+me.sayHi();
+me.getAge()
+let admin = me;
+admin.userName = 'Админ';
+admin.sayHi();
