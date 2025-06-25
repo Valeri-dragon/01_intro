@@ -112,12 +112,22 @@ let me = {
 
 // функция вернёт получившийся объект, но это будет тот же объект,
 // который мы передали в первый аргумент, то есть она изменит объект me и вернёт его
-let newMe = Object.assign(me, {name: 'No Valeri'}, { surname: 'No Nikitina'});
+//let newMe = Object.assign(me, {name: 'No Valeri'}, { surname: 'No Nikitina'});
 
 //me и newMe - один и тот же объект, и мы его изменили
-l(newMe);
+//l(newMe);
+//l(me);
+
+//l(me === newMe) //true
+
+//как создать новый объект с помощью функции Object.assign()*/
+
+//подмешиваем свойства в свежесозданный пустой объект
+let newMe = Object.assign({}, me, {names:'No Valeri', surname: "No Nikitina"});
+//или делаем тоже самое с помощью spread
+let newMeWithSpread = { ...me, names:'No Valeri', surname: "No Nikitina"};
+
+//исходный объект остался не тронутым
 l(me);
-
-l(me === newMe) //true
-
-//как создать новый массив с помощью функции Object.assign()*/
+l(newMe);
+l(newMeWithSpread)
