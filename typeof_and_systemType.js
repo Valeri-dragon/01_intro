@@ -73,5 +73,45 @@ const getOlderUser = (user1, user2)=>{
     }
     return user2.name;  
 }
+/**
+ * Создать функцию getOlderUserArray(), в которую будете передавать массив объектов с пользователями.
+ *  Функция должна вернуть имя старшего пользователя.
+ */
 let result = getOlderUser(user1, user2);
 l(result)
+let allUsers = [
+    { name: 'Валя', age: 11 },
+    { name: 'Таня', age: 24 },
+    { name: 'Рома', age: 21 },
+    { name: 'Надя', age: 34 },
+    { name: 'Антон', age: 7 }
+   ]
+
+const getOlderUserArray = (usersArray)=>{
+    let arr = [];
+    for (let i of usersArray) {
+        arr.push(i.age);
+    }
+    let obj = usersArray.filter(item => item.age >= Math.max(...arr))[0].name
+    return obj;
+}
+
+l(getOlderUserArray (allUsers));
+/*
+Создать функцию filter(), фильтрующую массив объектов по значению свойства. 
+Массив, название свойства и нужное значение должны передаваться в качестве аргументов.
+*/
+let objects = [
+    { name: 'Василий', surname: 'Васильев' },
+    { name: 'Иван', surname: 'Иванов' },
+    { name: 'Пётр', surname: 'Петров' }
+   ]
+
+const filter = (array, keySearch, valueSearch)=>{
+    let search = [keySearch, valueSearch]
+   
+    return array.filter((user) => search.includes(user.name) && user.name == valueSearch); 
+  
+}
+let resultFilter = filter(objects, 'name', 'Пётр');
+l(resultFilter)
