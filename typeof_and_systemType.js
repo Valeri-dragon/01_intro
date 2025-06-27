@@ -68,28 +68,10 @@ let user2 = {
     age: 21,
    }
 const getOlderUser = (user1, user2)=>{
-     let userFirst = Object.entries(user1);
-    let userSecond = Object.entries(user2);
-    const receiveAge = (user)=>{
-    for (let [key, value] of user){
-        l(`${key}:${value}`)
-        let name;
-        if (key === 'name') {
-            name = value
-        }
-    if(key === 'age'){
-        return  value
+       if(user1.age>user2.age){
+        return user1.name;
     }
-   
-   // return name
-} 
-        
-}
-   
-    let max = Math.max(receiveAge(userFirst), receiveAge(userSecond));
-   
-    l(max)
-  
+    return user2.name;  
 }
 let result = getOlderUser(user1, user2);
 l(result)
