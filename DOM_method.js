@@ -22,3 +22,9 @@ time.classList.remove('date') // удаление класса у элемент
 time.classList.toggle('date') // добавление/удаление  класса у элемента например при клике
 time.classList.contains('date') // проверка наличия класса у элемента 
 */
+/*События*/
+/**
+ * click — нажатие левой кнопки мыши
+ * input – изменение текста в поле
+ * Справочник по событиям https://developer.mozilla.org/ru/docs/web/events
+ */
