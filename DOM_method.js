@@ -27,4 +27,6 @@ time.classList.contains('date') // проверка наличия класса 
  * click — нажатие левой кнопки мыши
  * input – изменение текста в поле
  * Справочник по событиям https://developer.mozilla.org/ru/docs/web/events
+ * elements.addEventListener('click', ()=>{
+ * })
  */
