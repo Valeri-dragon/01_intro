@@ -36,14 +36,7 @@
                 `)
         }
     }
-    document.body.addEventListener('click', (e) => {
-        if (e.target.id === 'btnUserData') {
-            e.preventDefault()
-            let parentEl = e.target.parentElement
-            createStudentCard(parentEl)
-        }
 
-    })
 
 
     let allStudents = [
@@ -52,9 +45,11 @@
         { name: 'Рома', age: 21 },
         { name: 'Надя', age: 34 },
         { name: 'Антон', age: 7 }
-       ]
+    ]
     const createStudentsList = (listArr) => {
         let div = document.createElement('div');
+        div.classList.add('students__container');
+
         document.body.append(div);
 
         let list = document.createElement('ul');
@@ -78,8 +73,22 @@
         }
 
         return;
-      
-};
-      
-    createStudentsList(allStudents)
+
+    };
+     document.body.addEventListener('click', (e) => {
+        if (e.target.id === 'btnUserData') {
+            e.preventDefault()
+            let parentEl = e.target.parentElement
+            createStudentCard(parentEl)
+        }
+        if (e.target.id === 'getStudents') {
+            let blockStudents = document.querySelector('.students__container')
+            if (blockStudents) { 
+                blockStudents.remove() 
+            }
+            createStudentsList(allStudents)
+        }
+
+    })
+
 })()
