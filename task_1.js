@@ -77,20 +77,19 @@
     };
 
     document.body.addEventListener('click', (e) => {
+        let blockStudents = document.querySelector('.students__container')
         if (e.target.id === 'btnUserData') {
             e.preventDefault()
             let parentEl = e.target.parentElement
             createStudentCard(parentEl)
         }
         if (e.target.id === 'getStudents') {
-            let blockStudents = document.querySelector('.students__container')
             if (blockStudents) {
                 blockStudents.remove()
             }
             createStudentsList(allStudents)
         }
         if (e.target.id === 'deleteStudents') {
-            let blockStudents = document.querySelector('.students__container')
             if (blockStudents) {
                 blockStudents.remove()
             }
