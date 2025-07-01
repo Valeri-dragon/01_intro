@@ -36,9 +36,6 @@
                 `)
         }
     }
-
-
-
     let allStudents = [
         { name: 'Валя', age: 11 },
         { name: 'Таня', age: 24 },
@@ -49,33 +46,29 @@
     const createStudentsList = (listArr) => {
         let div = document.createElement('div');
         div.classList.add('students__container');
-
         document.body.append(div);
-
         let list = document.createElement('ul');
         div.appendChild(list);
-
         for (let student of listArr) {
             let item = document.createElement('li');
             list.appendChild(item);
-
             let head = document.createElement('h2');
             head.textContent = student.name;
             item.appendChild(head);
-
             let span = document.createElement('span');
             span.textContent = 'Возраст: ' + student.age;
             item.appendChild(span);
-
             div.style.backgroundColor = 'aquamarine';
             div.style.border = '3px solid black';
             div.style.padding = '15px';
         }
-
         return;
-
     };
-
+    const removeElement = (element) => {
+        if (element) {
+            element.remove()
+        }
+    }
     document.body.addEventListener('click', (e) => {
         let blockStudents = document.querySelector('.students__container')
         if (e.target.id === 'btnUserData') {
@@ -84,15 +77,11 @@
             createStudentCard(parentEl)
         }
         if (e.target.id === 'getStudents') {
-            if (blockStudents) {
-                blockStudents.remove()
-            }
-            createStudentsList(allStudents)
+            removeElement(blockStudents);
+            createStudentsList(allStudents);
         }
         if (e.target.id === 'deleteStudents') {
-            if (blockStudents) {
-                blockStudents.remove()
-            }
+            removeElement(blockStudents);
         }
     })
 
